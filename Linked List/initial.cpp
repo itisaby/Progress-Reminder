@@ -24,12 +24,14 @@ void insertbegin(Node *&head, int value)
 void insert(Node *&head, int value)
 {
     Node *n = new Node(value);
+    //Edge case
     if (!head)
     {
         head = n;
         return;
     }
-
+    
+    //Main algorithm 
     Node *temp = head;
     while (temp->next != NULL)
     {
@@ -38,7 +40,25 @@ void insert(Node *&head, int value)
     temp->next = n;
 }
 
+void deleteathead(Node* &head){
+    //edge case
+    //Deleting the first element
+    Node* del = head;
+    head = head->next;
+    delete del;
+}
+
 void deletion(Node *&head, int value){
+    // Handling Edge cases
+    if(head!=NULL){
+        return; 
+    }
+    // Handling Edge cases
+    if(head->next==NULL){
+        deleteathead(head);
+        return;
+    }
+    //Main Algorithm
     Node* temp = head;
     while(temp->next->data != value){
         temp = temp->next;
