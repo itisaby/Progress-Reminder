@@ -60,7 +60,6 @@ struct Node *insertatend(struct Node *head, int data)
 {
     struct Node *ptr = (struct Node *)malloc(sizeof(struct Node));
     struct Node *p = head;
-    int i = 0;
     while (p->next != NULL)
     {
         p = p->next;
@@ -73,7 +72,8 @@ struct Node *insertatend(struct Node *head, int data)
 }
 
 // Case4 - Insert after a node
-struct Node* insertafternode(struct Node *head, struct Node *prevNode, int data){
+struct Node *insertafternode(struct Node *head, struct Node *prevNode, int data)
+{
     struct Node *ptr = (struct Node *)malloc(sizeof(struct Node));
     ptr->data = data;
 
@@ -81,7 +81,66 @@ struct Node* insertafternode(struct Node *head, struct Node *prevNode, int data)
     prevNode->next = ptr;
 
     return head;
+}
 
+// Deletion in a linked List
+// Just like Insertion here also 4 cases are possible
+// 1. Deleting the first node
+// 2. Deleting the node at the index
+// 3. Deleting the Last Node
+// 4. Deleting the first node with a given index
+
+//Case1 - Deleting the first node
+struct Node *Deleteatfirst(struct Node *head)
+{
+    struct Node *p = head;
+    head = head->next;
+    free(p);
+
+    return head;
+}
+
+//Case2 - Deleting the note at the index
+struct Node *Deleteatindex(struct Node *head, int index)
+{
+    struct Node *p = head;
+    int i = 0;
+    while (i != index - 1)
+    {
+        p = p->next;
+        i++;
+    }
+    struct Node *q = p->next;
+    p->next = q->next;
+    free(q);
+
+    return head;
+}
+
+//Case3 - Deleting the last node
+struct Node *Deleteatlast(struct Node *head)
+{
+    struct Node *p = head;
+    struct Node *q = head->next;
+    while (q->next != NULL)
+    {
+        p = p->next;
+        q = q->next;
+    }
+    p->next = q->next;
+    free(q);
+
+    return head;
+}
+
+//Case4 - Deleting the first node of a given value
+struct Node *Deleteaftervalue(struct Node *head, struct Node *prevNode){
+    struct Node *p = prevNode;
+    struct Node *q = prevNode->next;
+    p->next = q->next;
+    free(q);
+
+    return head;
 }
 
 int main()
@@ -114,19 +173,31 @@ int main()
     fourth->next = NULL;
 
     LinkedListTraverse(head);
-
-    head = insertatfirst(head, 56);   //Case1
+    // Insertion in a linked list
+    head = insertatfirst(head, 56); //Case1
     LinkedListTraverse(head);
 
-    head = insertatindex(head, 39, 3);   //Case2
+    head = insertatindex(head, 39, 3); //Case2
     LinkedListTraverse(head);
 
-    head = insertatend(head, 92);      //Case3
+    head = insertatend(head, 92); //Case3
     LinkedListTraverse(head);
 
-    head = insertafternode(head, second, 37);  //Case4
+    head = insertafternode(head, second, 37); //Case4
     LinkedListTraverse(head);
 
-    
+    // Deletion in a linked list
+    head = Deleteatfirst(head); //Case1
+    LinkedListTraverse(head);
+
+    head = Deleteatindex(head, 4); //Case2
+    LinkedListTraverse(head);
+
+    head = Deleteatlast(head);   //Case3
+    LinkedListTraverse(head);
+
+    head = Deleteaftervalue(head, third);   //Case4
+    LinkedListTraverse(head);
+
     return 0;
 }
