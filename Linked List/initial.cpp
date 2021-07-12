@@ -100,6 +100,7 @@ bool Search(Node *head, int key)
 int main()
 {
     Node *head = NULL;
+    // can try out with any example
     insert(head, 1);
     insert(head, 2);
     insert(head, 3);
