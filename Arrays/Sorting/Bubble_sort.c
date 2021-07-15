@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+// Bubble Sort in C language
+
 void display(int a[], int n)
 {
     for (int i = 0; i < n; i++)
@@ -32,11 +35,11 @@ void BubbleSort(int a[], int n)
 void BubbleSortOptimised(int a[], int n)
 {
     int temp;
-    int isSorted = 0;
+    int isSort = 0;
     for (int i = 0; i < n - 1; i++)
     {
         printf("%d, no. of passes \n", i + 1); // for number of passes
-        isSorted = 1;
+        isSort = 1;
         for (int j = 0; j < n - i - 1; j++)
         {
             if (a[j] > a[j + 1])
@@ -44,15 +47,16 @@ void BubbleSortOptimised(int a[], int n)
                 temp = a[j];
                 a[j] = a[j + 1];
                 a[j + 1] = temp;
-                isSorted = 0;
+                isSort = 0;
             }
-            if (isSorted)
+            if (isSort)
             {
                 return;
             }
         }
     }
 }
+// By using this above method, Time Complexity can be reduced to O(n)
 
 int main()
 {

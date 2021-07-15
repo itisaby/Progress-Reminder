@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Selection Sort in C language
+
 void display(int *a, int n)
 {
     for (int i = 0; i < n; i++)
@@ -10,15 +12,16 @@ void display(int *a, int n)
     printf("\n");
 }
 
+//Selection Sort Function
 void SelectionSort(int *a, int n)
 {
     int index_min;
     int temp;
-    for (int i = 0; i < n - 1; i++)
-    {
+    for (int i = 0; i < n - 1; i++)                 //Loop for passes
+    {                                   
         index_min = i;
         for (int j = i + 1; j < n; j++)
-        {
+        {                                           //Loop for each pass
             if (a[j] < a[index_min])
             {
                 index_min = j;
@@ -30,6 +33,8 @@ void SelectionSort(int *a, int n)
         a[index_min] = temp;
     }
 }
+
+// Time Complexity of this function  is O(n^2)
 
 int main()
 {

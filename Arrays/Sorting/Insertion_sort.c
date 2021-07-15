@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//Insertion Sort in C language
+
 void display(int *a, int n)
 {
     for (int i = 0; i < n; i++)
@@ -10,6 +12,7 @@ void display(int *a, int n)
     printf("\n");
 }
 
+//Insertion Sort Function
 void InsertionSort(int *a, int n)
 {
     //Loop for passes
@@ -27,6 +30,8 @@ void InsertionSort(int *a, int n)
         a[j + 1] = k;
     }
 }
+
+// Time Complexity of this function is O(n^2)
 
 int main()
 {
