@@ -49,5 +49,20 @@ int main()
 
     cout<<maxsum<<endl;
 
+    // More better way in time complexity o(n)
+    // Kadane's algorithm 
+    int currksum =0;
+    int maxksum = INT_MIN;
+    for(int i=0;i< n; i++){
+        currksum+=a[i];
+        if(currksum<0){                //This is much better approach     KADANE's ALGORITHM
+            currksum=0;
+        }
+        maxksum = max(maxksum, currksum);
+
+    }
+    cout<<maxksum<< endl;
+
+
     return 0;
 }
