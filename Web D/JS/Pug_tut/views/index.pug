@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using HTML in pug #{title}</title>
+
+    style
+        include ../static/style.css
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">Contact us</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+
+        <h1>Get this Gym membership for 60$ Hurry fill it up ASAP!</h1>
+        <p>
+            | #{content}
+        </p>
+        
+        <form action="/" method="post" id="contact">
+            <input type="text" name="name" id="name" placeholder="Enter your name">
+            <input type="text" name="age" id="age" placeholder="Enter your age">
+            <input type="text" name="Gender" id="Gender" placeholder="Enter your Gender">
+            <textarea name="address" id="address" cols="30" rows="10" placeholder="Enter your address"></textarea>
+            <textarea name="more" id="more" cols="30" rows="10" placeholder="more about you"></textarea>
+            <button class="btn">submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
