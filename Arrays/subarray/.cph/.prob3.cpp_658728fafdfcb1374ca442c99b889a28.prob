@@ -1,0 +1,1 @@
+{"name":"Local: prob3","url":"/home/arnab/Progress-Reminder/Arrays/subarray/prob3.cpp","tests":[{"id":1626511102710,"input":"7\n4 -4 6 -6 10 -11 12","output":"22"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/arnab/Progress-Reminder/Arrays/subarray/prob3.cpp","group":"local","local":true}
