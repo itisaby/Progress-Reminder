@@ -3,6 +3,7 @@
 #include<climits>
 using namespace std;
 
+// Find duplicate numbers 
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {

@@ -1,6 +1,6 @@
 
  // Definition for singly-linked list.
- 
+
  #include<iostream>
  using namespace std;
 
@@ -10,6 +10,8 @@
       ListNode(int x) : val(x), next(NULL) {}
   };
  
+
+ // Cycle detection part 2
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
