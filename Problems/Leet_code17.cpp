@@ -12,7 +12,7 @@ public:
                 }
                 else if(s[i]-48>l){
                     sl = l;
-                    l =s[i] -48;
+                    l =s[i] - 48;
                 }
             }
         }
