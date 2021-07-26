@@ -20,7 +20,7 @@ public:
         tail = NULL;
         count = 0;
     }
-    
+
     /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
     int get(int index) {
         ListNode *tmp = head;
