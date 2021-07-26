@@ -8,7 +8,7 @@ using namespace std;
       ListNode *next;
       ListNode() : val(0), next(nullptr) {}
       ListNode(int x) : val(x), next(nullptr) {}
-      ListNode(int x, ListNode *next) : val(x), next(next) {}
+      ListNode(int x, ListNode *next) : val(x), next(next) {}                                    
   };
 
   class Solution
@@ -28,7 +28,7 @@ using namespace std;
                   temp = prev_temp;
               }
               else if (count == b + 1)
-              {
+              {                                                                                  
                   while (list2->next)
                   {
                       list2 = list2->next;
