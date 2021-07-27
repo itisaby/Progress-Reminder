@@ -81,6 +81,7 @@ int main() {
     Insertatend(head, 6);
     Insertatend(head, 7);
     display(head);
+    cout<<length(head)<<endl;
     head = Appendlastk(head, 3);
     display(head);
     return 0;
