@@ -57,7 +57,7 @@ void Even_odd(Node* &head){
     }
 
     odd->next = evenstart;
-   
+  
     if(odd->next == NULL){
         even->next=NULL;
     }
