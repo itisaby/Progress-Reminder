@@ -21,6 +21,7 @@ int isFull(struct Stack* ptr){
     return 0;
 }
 
+
 void push(struct Stack* ptr, int val){
     if(isFull(ptr)){
         printf("Stack Overflow");
@@ -37,6 +38,16 @@ int pop(struct Stack* ptr){
     int val = ptr->arr[ptr->top];
     ptr->top--;
     return val;
+}
+
+int peek(struct Stack* ptr, int i){
+    if(ptr->top-i+1<0){
+        printf("Not valid");
+        return -1;
+    }
+    else{
+        return ptr->arr[ptr->top-i+1];
+    }
 }
 
 int main(){
@@ -68,9 +79,9 @@ int main(){
     printf("Popped %d from the stack\n", pop(sp)); 
     printf("Popped %d from the stack\n", pop(sp)); 
     
+    for(int j=1; j<sp->top+1;j++){
+        printf("The value at index %d is %d \n", j, peek(sp, j));
+    }
     
-
-
-
     return 0;
 }
