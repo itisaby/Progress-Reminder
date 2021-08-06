@@ -48,17 +48,11 @@ int pop(struct Stack *ptr)
     return val;
 }
 
-int peek(struct Stack *ptr, int i)
-{
-    if (ptr->top - i + 1 < 0)
-    {
-        printf("Not valid");
-        return -1;
-    }
-    else
-    {
-        return ptr->arr[ptr->top - i + 1];
-    }
+int StackTop(struct Stack *ptr){
+    return ptr->arr[ptr->top];
+}
+int StackBottom(struct Stack *ptr){
+    return ptr->arr[0];
 }
 
 int main()
@@ -84,17 +78,7 @@ int main()
     push(sp, 23);
     push(sp, 33);
     push(sp, 94);
-    printf("After pushing : %d \n", isFull(sp));
-    printf("After pushing : %d \n", isEmpty(sp));
-
-    printf("Popped %d from the stack\n", pop(sp));
-    printf("Popped %d from the stack\n", pop(sp));
-    printf("Popped %d from the stack\n", pop(sp));
-
-    for (int j = 1; j < sp->top + 1; j++)
-    {
-        printf("The value at index %d is %d \n", j, peek(sp, j));
-    }
-
-    return 0;
+    printf("Top - > %d \n", StackTop(sp));
+    printf("Bottom - > %d \n", StackBottom(sp));
+     return 0;
 }
