@@ -101,7 +101,6 @@ int parenthesisMatch(char * exp){
     else{
         return 0;
     }
-    
 }
 
 int main()
