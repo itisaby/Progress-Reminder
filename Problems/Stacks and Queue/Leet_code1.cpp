@@ -32,3 +32,8 @@ public:
         return true;
     }
 };
+
+int main(){
+
+    return 0;
+}

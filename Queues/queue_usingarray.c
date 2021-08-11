@@ -72,6 +72,6 @@ int main()
     printf("Dequeue %d\n", Dequeue(&q));
     printf("Dequeue %d\n", Dequeue(&q));
     printf("Dequeue %d\n", Dequeue(&q));
-
+    
     return 0;
 }
