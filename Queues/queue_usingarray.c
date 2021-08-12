@@ -36,6 +36,7 @@ void Enqueue(struct Queue *q, int val)
     {
         q->r++;
         q->arr[q->r] = val;
+        printf("Queue Added: %d\n", val);
     }
 }
 
