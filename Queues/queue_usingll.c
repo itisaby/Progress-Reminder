@@ -34,12 +34,12 @@ void Enqueue(int val)
 
 int Dequeue()
 {
+    int val = -1;
+    struct Node *ptr = f;
     if (f == NULL)
     {
         printf("Queue is empty\n");
     }
-    int val = -1;
-    struct Node *ptr = f;
     f = f->next;
     val = ptr->data;
     free(ptr);
@@ -63,8 +63,10 @@ int main()
     Enqueue(4);
     Enqueue(3);
     LinkedListTraverse(f);
-    Dequeue();
-    Dequeue();
+    printf("Dequeue %d\n", Dequeue());
+    printf("Dequeue %d\n", Dequeue());
+    printf("Dequeue %d\n", Dequeue());
+    printf("Dequeue %d\n", Dequeue());
     LinkedListTraverse(f);
 
     return 0;
