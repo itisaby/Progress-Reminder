@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//INSERTION IN BST
+//Deletion IN BST
 
 struct Node
 {
@@ -19,7 +19,6 @@ struct Node *createNode(int data)
     n->right = NULL;
     return n; // returning the required node
 }
-
 void Inorder(struct Node *root)
 {
     if (root != NULL)
@@ -49,30 +48,46 @@ int isBST(struct Node *root)
     return 1;
 }
 
-void Insert(struct Node *root, int key)
+struct Node *InorderPred(struct Node *root){
+    root = root->left;
+    while(root->right!= NULL){
+        root = root->right;
+    }
+    return root;
+}
+
+struct Node *Deletion(struct Node *root, int value)
 {
-    struct Node * prev = NULL;
-    while(root != NULL){
-        prev = root;
-        if(key==root->data){
-            printf("Cannot Insert element already there \n");
-            return;
-        }
-        else if(key<root->data){
-            root = root->left;
-        }
-        else{
-            root = root->right;
-        }
-    }
-    struct Node *new = createNode(key);
-    if(key<prev->data){
-        prev->left = new;
-    }
-    else{
-        prev->right = new;
+
+    if (root == NULL)
+    {
+        return NULL;
     }
 
+    if((root->left == NULL) && (root->right == NULL)){
+        free(root);
+        return NULL;
+    }
+
+    // Search for the node to be deleted
+    struct Node *iPre;
+    if (value < root->data)
+    {
+        Deletion(root->left, value);
+    }
+    else if (value > root->data)
+    {
+        Deletion(root->right, value);
+    }
+    //Deletion when node is found
+    else
+    {
+        iPre = InorderPred(root);
+        root->data = iPre->data;
+        root->left = Deletion(root->left, iPre->data);
+    }
+
+    return root;
 }
 
 int main()
@@ -88,13 +103,12 @@ int main()
     p->right = p2;
     p1->left = p3;
     p1->right = p4;
-    printf("%d \n", isBST(p));
+    printf("BST : %d \n", isBST(p));
     Inorder(p); // Since its printing a sorted array then its a BST
 
-    Insert(p, 7);
-    printf("%d \n",p->right->right->data);
-    Insert(p, 2);
-    Inorder(p); 
-    
+    Deletion(p, 3);
+    printf("After Deleting\n");
+    Inorder(p);
+
     return 0;
 }
