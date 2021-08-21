@@ -107,7 +107,7 @@ int main()
     Inorder(p); // Since its printing a sorted array then its a BST
 
     Deletion(p, 3);
-    printf("After Deleting\n");
+    printf("After Deletion\n");
     Inorder(p);
 
     return 0;
